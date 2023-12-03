@@ -167,13 +167,20 @@ const Tabata = ({ duration }) => {
       <div className="counter-content">
         <div className="csci-e39">CSCI E-39</div>
         <h2>WORKOUT</h2>
-        <h4>Duration of all timers combined: {totalTiming} seconds</h4>
-        <h4>{btnTimer[0]}</h4>
+        <div class="total-num">
+          <div class="total-num-sec">workout duration </div>
+          {totalTiming} <div class="total-num-sec"> sec.</div>
+        </div>
+        <div class="content-btn-start">
+          <div class="btn-start">Ready? Start.</div>
+          <h4>{btnTimer[0]}</h4>
+        </div>
         <div className="counterBoxContent">
           <div className="info">
             <h3>
               {title} ({btnId}/{btnNum})
             </h3>
+
             <h4>Total timing: {remaining} seconds</h4>
             <p className="titleInfo">Remaining</p>
             <p className="numInfo">
@@ -204,7 +211,7 @@ const Tabata = ({ duration }) => {
             {!isFinish && (
               <>
                 <button
-                  className={`button button-${
+                  className={`button-nav button-nav-${
                     isActive ? "active" : "inactive"
                   }`}
                   onClick={toggle}
