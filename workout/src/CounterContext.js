@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { BlogContext } from "./BlogProvider";
+import { Link } from 'react-router-dom';
 
 /* const Footer = () => {
   const { postCount } = useContext(BlogContext);
@@ -148,6 +149,12 @@ const Blog = () => {
         {editorOpen && <Editor />}
 
         {/*  <Footer postCount={posts.length} /> */}
+      </div>
+
+      <div className="footer-counter">
+        <Link to="/tabata">
+          <button className="button-nav">Start Workout</button>
+        </Link>
       </div>
     </>
   );

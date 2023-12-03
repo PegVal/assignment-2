@@ -136,7 +136,7 @@ input[type=text]:focus {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 70vh;
+      min-height: 60vh;
 }
 
 .container-titre-app {
@@ -522,7 +522,23 @@ input[type=text]:focus {
       background-color: #3f4773;
 }
 
+.button-nav {
+      box-sizing: border-box;
+      text-align: center;
+      padding: 10px;
+      margin: 5px;
+      width: 130px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: .7rem;
+      background-color: #9668c1;
+      border: solid 4px rgba(255, 255, 255, 0.2);
+      color: #fff;
+}
 
+.button-nav:hover {
+      background-color: #643690;
+}
 
 .button {
       /* width: 20%; */
@@ -547,6 +563,11 @@ input[type=text]:focus {
       background-color: #3f4773;
 }
 
+
+.footer-counter{
+   width:100%;
+   text-align: center;
+}
 
 .docs {
       display: flex;

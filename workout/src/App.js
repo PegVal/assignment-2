@@ -1,18 +1,30 @@
 import "./App.css";
 
 import BlogProvider from "./BlogProvider";
-import Blog from "./CounterContext";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
+import Blog from "./CounterContext";
 import DisplayDuration from "./DisplayDuration";
 import Tabata from "./Tabata";
-//import Countdown from "./Countdown";
+
+
+const Inner = () => {
+  const commonRoutes = (
+    <>
+      <Route path="/" element={[<DisplayDuration />, <Blog />]} />
+      <Route path="/tabata" element={<Tabata duration={0} />} />
+    </>
+  );
+  return <Routes>{commonRoutes}</Routes>;
+};
+
 
 const App = () => {
   return (
     <BlogProvider>
-      <DisplayDuration />
-      <Blog />
-      <Tabata duration={0} />
+      <BrowserRouter>
+        <Inner />
+      </BrowserRouter>
     </BlogProvider>
   );
 };

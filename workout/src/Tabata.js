@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-//import "./counter.css";
 import { BlogContext } from "./BlogProvider";
+import { Link } from "react-router-dom";
 
 //const Tabata = ({ duration, init, rehearsal, pause, remaining }) => {
 const Tabata = ({ duration }) => {
@@ -184,7 +184,13 @@ const Tabata = ({ duration }) => {
 
   return (
     <>
-      <div class="timerMenu">{btnTimer}</div>
+      <div class="timerMenu">
+        <Link to="/">
+          <button className="button-nav">Back to config</button>
+        </Link>
+        {btnTimer}
+      </div>
+
       <div className="counter-content">
         <div className="csci-e39">CSCI E-39</div>
         <h2>WORKOUT</h2>
