@@ -3,11 +3,9 @@ import { useState, useEffect } from "react";
 import { BlogContext } from "./BlogProvider";
 import { Link } from "react-router-dom";
 
-//const Tabata = ({ duration, init, rehearsal, pause, remaining }) => {
+
 const Tabata = ({ duration }) => {
   const value = React.useContext(BlogContext);
-
-  // ------------------------------------
   const extractTimerValues = value.posts.map((what) => {
     const duration = what.duration;
     const repeat = what.repeat;
@@ -20,10 +18,9 @@ const Tabata = ({ duration }) => {
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
-  // ---------------------------------
+ 
   const btnNum = value.postCount;
 
-  // ------------------------------------- BOUCLE
   const btnTimer = value.posts.map((what, i) => {
     const duration = what.duration;
     const repeat = what.repeat;
@@ -57,100 +54,76 @@ const Tabata = ({ duration }) => {
       <>
         <button id="btnId" className="button" onClick={initBtn}>
           ({btnId + 1}/{btnNum}) {title}
-          {/*  <br />{duration} duration + {pause} pause * {repeat + 1} times
-          <br/>({repeat} repeat)
-          <br/>= {timerTotal} seconds */}
         </button>
       </>
     );
   });
 
-  const [btnId, setBtnId] = useState(0); // N° de btn ----------------------------------- NEW
-
-  // -------------- valeur à faire passer dans le component ---------------
-
   const valFinal = duration;
-
+  const [btnId, setBtnId] = useState(0); 
   const [remaining, setRemaining] = useState(0);
   const [total, setTotal] = useState(remaining + 1);
-
   const [repeat, setRepeat] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [pause, setPause] = useState(0);
-
   const [title, setTitle] = useState("nothing yet");
-
   const [valRepeat, setValRepeat] = useState(0);
   const [valPause, setValPause] = useState(0);
   const [valInitial, setValInitial] = useState(0);
 
-  const [isActive, setIsActive] = useState(false); // btn play/pause
-  const [isFinish, setIsFinish] = useState(false); // quand on arrive à la fin
+  const [isActive, setIsActive] = useState(false); 
+  const [isFinish, setIsFinish] = useState(false); 
   const [pauseActif, setpauseActif] = useState(false);
 
   function toggle() {
-    setIsActive(!isActive); // intervertir la valeur pour le btn Play/Pause
+    setIsActive(!isActive); 
   }
 
   function reset() {
-    setSeconds(valInitial); //setSeconds(valInitial);
+    setSeconds(valInitial); 
     setIsActive(false);
-    setIsFinish(false); // quand tout est terminé (pause et repetition inclus)
-    setRepeat(valRepeat); // nombre de répétition: retour à la la valeur initiale
-    setPause(valPause); // pause: retour à la valeur initiale
-    setpauseActif(false); // la pause est inactive
+    setIsFinish(false); 
+    setRepeat(valRepeat); 
+    setPause(valPause); 
+    setpauseActif(false); 
     setTotal(remaining);
-    //console.log("reset");
   }
 
-  /*   function forward() {
-    setSeconds(valFinal); // timer: retour à la la valeur initiale
-    setIsFinish(true); // c'est terminé
-    setRepeat(0); // pour le repeat: au reset réinitialiser les valeurs
-    setPause(0); // pour le timer de la pause: au reset réinitialiser les valeurs
-    setpauseActif(false); // la pause est inactive
-    setTotal(0);
-    //console.log("Forward end");
-  } */
 
   useEffect(() => {
     if (repeat > 0) {
       let interval = setInterval(() => {
-        // sans pause (pause = 0) -------------------------------------------------------------
+        // with pause
         if (pause === 0) {
-          //console.log("pause = 0");
           if (seconds <= 1) {
-            setSeconds((seconds) => valInitial - 1); // on recommence le timer
+            setSeconds((seconds) => valInitial - 1); 
             setTotal(total - 1);
             if (seconds === 1) {
-              setRepeat((repeat) => repeat - 1); // decrement n° of repeat
+              setRepeat((repeat) => repeat - 1); 
             }
           }
         }
-        // avec pause (pause > 0) -------------------------------------------------------------
+        // without pause
         if (pause > 0 && pauseActif !== false) {
-          console.log("pause > 0");
           setPause(pause - 1);
           setTotal(total - 1);
 
           if (pause === 1) {
-            // obliger de mettre à 1 sinon je perds des secondes
-            setSeconds((seconds) => valInitial); // on recommence le timer
-            setPause((pause) => valPause); // on recommence le compteur de la pause
-            setpauseActif(false); // on change le param de pause pour pouvoir recommencer
-            setRepeat((repeat) => repeat - 1); // decrement n° of repeat
+            setSeconds((seconds) => valInitial); 
+            setPause((pause) => valPause); 
+            setpauseActif(false); 
+            setRepeat((repeat) => repeat - 1); 
           }
         } else if (isActive && !pauseActif && pause !== valPause) {
           setpauseActif(true);
           clearInterval(interval);
         }
 
-        // ---- duration
         if (isActive && seconds !== valFinal) {
           setSeconds(seconds - 1);
           setTotal(total - 1);
           if (seconds === valFinal + 1) {
-            setpauseActif(true); // coundown de la pause
+            setpauseActif(true); 
           }
         } else if (!isActive && pauseActif && seconds !== valInitial) {
           setpauseActif(false);
@@ -160,8 +133,8 @@ const Tabata = ({ duration }) => {
 
       return () => clearInterval(interval);
     } else {
-      //console.log("Tout est TERMINÉ!");
-      setIsFinish(true); // quand on arrive à la fin, les btn doivent disparaitre
+      // at the end, btn must disappear
+      setIsFinish(true); 
       setRepeat(0);
       setSeconds(0);
       setPause(0);

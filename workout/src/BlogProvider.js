@@ -5,8 +5,7 @@ import { useState } from "react";
 export const BlogContext = React.createContext({});
 
 const BlogProvider = ({ children }) => {
-  // states from Blog
-  const [posts, setPosts] = useState([]); // array to store the list of posts
+  const [posts, setPosts] = useState([]); 
   const [selectedPost, setSelectedPost] = useState(null);
 
   const closeEditor = () => {
@@ -17,18 +16,14 @@ const BlogProvider = ({ children }) => {
     <BlogContext.Provider
       value={{
         posts,
-        editorOpen: !!selectedPost, // returns a boolean
+        editorOpen: !!selectedPost, 
         selectedPost,
         closeEditor,
-        postCount: posts.length, // footer
+        postCount: posts.length, 
 
-        // delete post
         deletePost: ({ id }) => setPosts(posts.filter((x) => x.id !== id)),
-
-        // open editor
         openEditor: () => setSelectedPost({}),
 
-        // open post
         openPost: ({ id }) => {
           const p = posts.find((p) => p.id === id);
           setSelectedPost(p);
@@ -36,7 +31,6 @@ const BlogProvider = ({ children }) => {
 
         savePost: ({ id, title, duration, repeat, pause }) => {
           const updatedPost = {
-            //id: makeId(), // random num
             id,
             title,
             duration,
@@ -45,13 +39,12 @@ const BlogProvider = ({ children }) => {
           };
 
           if (id) {
-            // update existing post
             const updatedPosts = posts.map((p) =>
               p.id === id ? updatedPost : p
             );
             setPosts(updatedPosts);
           } else {
-            // create a new one
+            // create a new post
             setPosts([
               ...posts,
               {

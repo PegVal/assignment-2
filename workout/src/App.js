@@ -1,7 +1,7 @@
 import "./App.css";
 
 import BlogProvider from "./BlogProvider";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Blog from "./CounterContext";
 import DisplayDuration from "./DisplayDuration";
