@@ -508,6 +508,26 @@ input[type=text]:focus {
    background-color: #643690;
 }
 
+.button-big {
+   box-sizing: border-box;
+   text-align: center;
+   padding: 10px;
+   margin: 5px;
+   width: 180px;
+   height: 60px;
+   text-transform: uppercase;
+   font-weight: 600;
+   font-size: .7rem;
+   background-color: #9668c1;
+   border: solid 4px rgba(255, 255, 255, 0.2);
+   color: #fff;
+}
+
+.button-big:hover {
+   background-color: #643690;
+}
+
+
 .button {
    box-sizing: border-box;
    text-align: center;

@@ -135,7 +135,7 @@ const Blog = () => {
 
       <div className="footer-counter">
         <Link to="/tabata">
-          <button className="button-nav">Start Workout</button>
+          <button className="button-big">Start Workout</button>
         </Link>
       </div>
     </>
