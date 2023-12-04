@@ -334,7 +334,8 @@ input[type=text]:focus {
 .counter-content {
    background-color: #1c2028;
    padding: 20px;
-   padding-bottom: 80px;
+   padding-top: 80px;
+   padding-bottom: 60px;
 }
 
 
@@ -342,7 +343,7 @@ input[type=text]:focus {
    margin: auto;
    max-width: 650px;
    background-color: #292e39;
-   padding: 20px;
+   padding-bottom: 20px;
    border-radius: 20px;
 }
 
@@ -417,7 +418,7 @@ input[type=text]:focus {
 
 
 .infoBoxContent {
-   padding-top: 30px;
+   padding-top: 10px;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -467,9 +468,7 @@ input[type=text]:focus {
 
 
 .buttonContent {
-   margin: auto;
-   margin-top: 20px;
-   max-width: 90%;
+   max-width: 100%;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
@@ -512,8 +511,8 @@ input[type=text]:focus {
 .btn-start{
    background-color: #9668c1;
    padding: 3px;
-   width: 250px;
-   margin-top: 20px;
+   width: 255px;
+   margin-top: 80px;
    margin-bottom: -10px;
    color: #fff;
    text-align: center;
@@ -526,7 +525,8 @@ input[type=text]:focus {
    text-align: center;
    padding: 10px;
    margin: 5px;
-   width: 130px;
+   width: 180px;
+   height: 40px;
    text-transform: uppercase;
    font-weight: 600;
    font-size: .7rem;
@@ -545,26 +545,46 @@ input[type=text]:focus {
    padding: 10px;
    margin: 5px;
    width: 180px;
-   height: 60px;
+   height: 40px;
    text-transform: uppercase;
    font-weight: 600;
    font-size: .7rem;
-   background-color: #b56d97;
+   background-color: #7ebf84;
    border: solid 4px rgba(255, 255, 255, 0.2);
    color: #fff;
 }
 
 .button-big:hover {
-   background-color: #a05883;
+   background-color: #5c9e63;
 }
 
+
+.button-elem{
+   box-sizing: border-box;
+   text-align: center;
+   padding: 10px;
+   margin: 5px;
+   width: 180px;
+   height: 40px;
+   text-transform: uppercase;
+   font-weight: 600;
+   font-size: .7rem;
+   background-color: #6876c1;
+   border: solid 4px rgba(255, 255, 255, 0.2);
+   color: #fff;
+}
+
+.button-elem:hover {
+   background-color: #3f4773;
+}
 
 .button {
    box-sizing: border-box;
    text-align: center;
    padding: 10px;
    margin: 5px;
-   width: 130px;
+   /* width: 120px; */
+   height: 40px;
    text-transform: uppercase;
    font-weight: 600;
    font-size: .7rem;
@@ -594,6 +614,9 @@ input[type=text]:focus {
 }
 
 .timerMenu {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
    background-color: #000;
    padding: 20px;
    text-align: center;

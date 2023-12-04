@@ -15,7 +15,7 @@ const Blog = () => {
             <div className="text">List of Workout </div>
 
             <Link to="/add">
-              <button className="button-nav" onClick={() => openEditor()}>
+              <button className="button-counter" onClick={() => openEditor()}>
                 Add a timer
               </button>
             </Link>
